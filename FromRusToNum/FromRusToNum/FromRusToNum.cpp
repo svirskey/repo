@@ -197,7 +197,7 @@ bool TranslateToNumbers(vector<string>& lst, int& num)
     int tmp=0;
     for (int i = 0; i < lst.size(); i++)
     {
-        if ( Hundreds(lst[i], tmp)) // ок
+        if ( Hundreds(lst[i], tmp)) 
         {
             if (flag100 or flag10 or flag1) return false;
             flag100 = true;
@@ -205,7 +205,7 @@ bool TranslateToNumbers(vector<string>& lst, int& num)
             continue;
         }
 
-        if ( Decades(lst[i], tmp)) // проверка на корректность нужна, пример: тридцать двадцать один
+        if ( Decades(lst[i], tmp)) 
         {
             if (flag10 or flag1) return false;
             flag10 = true; flag100 = true;
