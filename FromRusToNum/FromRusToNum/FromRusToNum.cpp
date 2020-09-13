@@ -11,10 +11,10 @@ void ToPart(char* buff, int sizeofbuff, vector<string>& lst)
     {
         if (buff[i] == ' ')
         {
-            for (int j=begin; j<i;j++)
-                {
-                    tmp += buff[j];
-                }
+            for (int j = begin; j < i; j++)
+            {
+                tmp += buff[j];
+            }
             lst.push_back(tmp);
             tmp.clear();
             begin = i + 1;
@@ -29,7 +29,7 @@ void ToPart(char* buff, int sizeofbuff, vector<string>& lst)
         }
     }
 }
-void TranslateToNumbers(vector<string>& lst,string num)
+void TranslateToNumbers(vector<string>& lst, string num)
 {
 
 }
@@ -37,14 +37,14 @@ void TranslateToNumbers(vector<string>& lst,string num)
 int main()
 {
     setlocale(LC_ALL, "rus");
-    
+
     vector<string> lst;
-    char buff[256] = {""};
-    int sizeofbuff=0;
+    char buff[256] = { "" };
+    int sizeofbuff = 0;
     string num;
 
     cout << "Введите название числа: ";
-    cin.getline(buff,256);
+    cin.getline(buff, 256);
 
     for (int i = 0; i < sizeof(buff) / sizeof(char); i++)
     {
@@ -55,7 +55,7 @@ int main()
         }
     }
 
-    ToPart(buff,sizeofbuff, lst);
+    ToPart(buff, sizeofbuff, lst);
 
 
 }
