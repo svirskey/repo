@@ -29,9 +29,12 @@ void ToPart(char* buff, int sizeofbuff, vector<string>& lst)
         }
     }
 }
-void TranslateToNumbers(vector<string>& lst, string num)
+void TranslateToNumbers(vector<string>& lst, int num)
 {
+    for (int i = 0; i < lst.size(); i++)
+    {
 
+    }
 }
 
 int main()
@@ -41,7 +44,7 @@ int main()
     vector<string> lst;
     char buff[256] = { "" };
     int sizeofbuff = 0;
-    string num;
+    int num;
 
     cout << "Введите название числа: ";
     cin.getline(buff, 256);
