@@ -6,7 +6,11 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QRegExp>
-#include "forest.h"
+#include <QLinkedList>
+#include <QListWidget>
+#include "tree.h"
+#include <QPainter>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,11 +24,21 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void paintEvent(QPaintEvent *event);
+
 private slots:
 
     void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    void openFile();
+    void widthTraversal(Node& node,int& width,int &depth);
+
 };
+
+
+
 #endif // MAINWINDOW_H
+
+
