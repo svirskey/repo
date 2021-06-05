@@ -2,6 +2,7 @@
 #include <QRegExp>
 #include <QVector>
 #include <QStringList>
+#include <QLinkedList>
 
 #ifndef FOREST_H
 #define FOREST_H
@@ -11,12 +12,13 @@ struct Node
 {
     QString name;
     QString typeOfInheritance;
-    int levelOfDepth;
+    int levelOfDepth=0;
+    int levelOfWidth=0;
+    int numFromBros=1;
     Node *parent;
     QVector<Node*> children;
     Node(QString name,QString typeOfInheritance,Node *parent,QVector<Node*> children);
     Node();
-    Node* find(QString name,Node& node);
     ~Node();
 };
 
@@ -30,7 +32,7 @@ public:
     Tree();
     void add(QString string);
     Node* findParent(QString name,Node& node);
-
+    void clear();
 };
 
 #endif // FOREST_H

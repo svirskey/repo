@@ -24,3 +24,15 @@ class Boss : private Manager
 
 class retiree : public Human
 {};
+
+class President : protected Boss
+{};
+
+class Dstudent : protected schoolboy
+{};
+
+class medalist : ExcellentPupil
+{};
+
+class programmer : public Employee
+{};

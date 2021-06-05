@@ -25,11 +25,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QListWidget" name="listWidget">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-     </widget>
+     <widget class="QGraphicsView" name="graphicsView"/>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">

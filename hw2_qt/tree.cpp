@@ -14,20 +14,6 @@ Node::Node()
     parent=nullptr;
 }
 
-Node* Node::find(QString name,Node& node)
-{
-    if (this->name == name)
-    {
-        children.append(&node);
-        node.levelOfDepth = this->levelOfDepth + 1;
-        return this;
-    }
-    for (int k = 0; k < children.size();  k++)
-    {
-       return children[k]->find(name,node);
-    }
-    return nullptr;
-}
 
 Node::~Node()
 {
@@ -58,6 +44,7 @@ void Tree::add(QString string)
         tmp->parent=nullptr;
         tmp->typeOfInheritance="";
         tmp->levelOfDepth=1;
+        tmp->levelOfWidth=1;
         root=tmp;
     }
     else if (words.count()==4) // class aaa : bbb
@@ -78,19 +65,33 @@ void Tree::add(QString string)
 
 Node *Tree::findParent(QString name,Node& node)
 {
+    QLinkedList<Node*> list;
 
-    if (root->name==name)
+    list.push_back(this->root);
+
+    while (!list.isEmpty())
     {
-        root->children.append(&node);
-        node.levelOfDepth=2;
-        return root;
-    }
+        Node *tmp=list.first();
+        list.pop_front();
 
-    for (int j=0; j<root->children.size();j++)
-    {
-         root->children[j]->find(name,node);
-    }
+        if (tmp->name == name)
+            {
+                tmp->children.append(&node);
+                node.levelOfDepth = tmp->levelOfDepth + 1;
+                return tmp;
+            }
 
+        for (int i=0; i<tmp->children.count();i++)
+            list.push_back(tmp->children[i]);
+    }
     return nullptr;
+}
+
+void Tree::clear()
+{
+    root=nullptr;
+    depth=0;
+    width=0;
+
 }
 

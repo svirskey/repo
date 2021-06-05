@@ -9,7 +9,8 @@
 #include <QLinkedList>
 #include <QListWidget>
 #include "tree.h"
-#include <QPainter>
+#include <QGraphicsScene>
+#include "graphicshuman.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -24,7 +25,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void paintEvent(QPaintEvent *event);
 
 private slots:
 
@@ -33,7 +33,15 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void openFile();
-    void widthTraversal(Node& node,int& width,int &depth);
+    void widthTraversal();
+    int* findWidth();
+
+    void paintStudents();
+
+    Tree tree;
+    QGraphicsScene *scene;
+
+    QListWidget *listWidget;
 
 };
 
